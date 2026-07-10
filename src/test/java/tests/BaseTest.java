@@ -53,6 +53,7 @@ public class BaseTest {
             options.addArguments("--no-sandbox");
             options.addArguments("--disable-dev-shm-usage");
             options.addArguments("--disable-gpu");
+            options.addArguments("--headless");
 
             Configuration.browserCapabilities = options;
         } else if (browser.equalsIgnoreCase("edge")) {
@@ -64,9 +65,11 @@ public class BaseTest {
             options.addArguments("--no-sandbox");
             options.addArguments("--disable-dev-shm-usage");
             options.addArguments("--disable-gpu");
+            options.addArguments("--headless");
 
             Configuration.browserCapabilities = options;
         }
+
         loginPage = new LoginPage();
         startPage = new StartPage();
         calendarPage = new CalendarPage();
