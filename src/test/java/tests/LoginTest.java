@@ -12,17 +12,17 @@ public class LoginTest extends BaseTest {
     )
     public void checkLoginWithPositiveCred() {
         loginPage.openPage()
-                .login(USER, PASSWORD)
+                .login(user, password)
                 .isPageOpened();
     }
 
     @DataProvider(name = "negativeLoginData Test")
     public Object[][] loginData() {
         return new Object[][]{
-                {"testgmail.com", PASSWORD, "Please enter a valid email address.", "INVALID_EMAIL"},
-                {"", PASSWORD, "Please enter your e-mail address.", "EMPTY_EMAIL"},
-                {USER, "123", "Invalid login credentials. Please try again.", "INVALID_PASSWORD"},
-                {USER, "", "Please enter a password.", "EMPTY_PASSWORD"},
+                {"testgmail.com", password, "Please enter a valid email address.", "INVALID_EMAIL"},
+                {"", password, "Please enter your e-mail address.", "EMPTY_EMAIL"},
+                {user, "123", "Invalid login credentials. Please try again.", "INVALID_PASSWORD"},
+                {user, "", "Please enter a password.", "EMPTY_PASSWORD"},
         };
     }
 

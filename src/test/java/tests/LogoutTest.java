@@ -11,7 +11,7 @@ public class LogoutTest extends BaseTest {
     public void positiveLogoutTest() {
         Assert.assertEquals(
                 loginPage.openPage()
-                        .login(USER, PASSWORD)
+                        .login(user, password)
                         .isPageOpened()
                         .clickLogoutButton()
                         .isPageOpened()

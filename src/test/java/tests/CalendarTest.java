@@ -16,7 +16,7 @@ public class CalendarTest extends BaseTest {
                 .activityType("Run")
                 .build();
         loginPage.openPage()
-                .login(USER, PASSWORD);
+                .login(user, password);
         startPage.clickCalendar();
         calendarPage.isPageOpened()
                 .addQuickWorkoutWithButton()
@@ -33,7 +33,7 @@ public class CalendarTest extends BaseTest {
                 .activityType("")
                 .build();
         loginPage.openPage()
-                .login(USER, PASSWORD);
+                .login(user, password);
         startPage.clickCalendar();
         calendarPage.isPageOpened()
                 .addQuickWorkoutWithButton()
@@ -49,7 +49,7 @@ public class CalendarTest extends BaseTest {
                 .name("Light run")
                 .build();
         loginPage.openPage()
-                .login(USER, PASSWORD);
+                .login(user, password);
         startPage.clickCalendar();
         calendarPage.isPageOpened()
                 .clickFullWorkoutFromCalendar();
@@ -68,7 +68,7 @@ public class CalendarTest extends BaseTest {
                 .activityType("Swim")
                 .build();
         loginPage.openPage()
-                .login(USER, PASSWORD);
+                .login(user, password);
         startPage.clickCalendar();
         calendarPage.isPageOpened()
                 .addQuickWorkoutFromCalendar()
@@ -110,7 +110,7 @@ public class CalendarTest extends BaseTest {
                 .activityType("Bike")
                 .build();
         loginPage.openPage()
-                .login(USER, PASSWORD);
+                .login(user, password);
         dashboardPage.clickCalendar();
         calendarPage.isPageOpened()
                 .addQuickWorkoutWithButton()
@@ -132,7 +132,7 @@ public class CalendarTest extends BaseTest {
                 .activityType("Bike")
                 .build();
         loginPage.openPage()
-                .login(USER, PASSWORD);
+                .login(user, password);
         dashboardPage.clickCalendar();
         calendarPage.isPageOpened()
                 .addQuickWorkoutWithButton()
@@ -156,7 +156,7 @@ public class CalendarTest extends BaseTest {
                 .name(workoutName)
                 .build();
         loginPage.openPage()
-                .login(USER, PASSWORD);
+                .login(user, password);
         dashboardPage.clickCalendar();
         calendarPage.isPageOpened()
         .addQuickWorkoutWithButton()

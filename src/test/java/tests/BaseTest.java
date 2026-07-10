@@ -24,8 +24,8 @@ public class BaseTest {
     WorkoutDetailsPage workoutDetailsPage;
     DashboardPage dashboardPage;
 
-    String USER = System.getProperty("user", PropertyReader.getProperty("user"));
-    String PASSWORD= System.getProperty("password", PropertyReader.getProperty("password"));
+    String user = System.getProperty("user", PropertyReader.getProperty("user"));
+    String password= System.getProperty("password", PropertyReader.getProperty("password"));
 
     @BeforeMethod(alwaysRun = true, description = "Browser settings")
     public void setUp(@Optional("chrome") String browser) {
