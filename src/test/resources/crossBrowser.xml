@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="2"
+       name="FinalSurge suite"
+       parallel="tests">
+
+    <test name="Chrome">
+        <classes>
+            <class name="tests.LoginTest">
+                <methods><include name="checkLoginWithNegativeCred"></include></methods>
+            </class>
+            <class name="tests.CalendarTest"/>
+            <parameter name="browser" value="chrome"/>
+        </classes>
+    </test>
+
+    <test name="Edge">
+        <classes>
+            <class name="tests.LoginTest">
+                <methods><include name="checkLoginWithNegativeCred"></include></methods>
+            </class>
+            <class name="tests.CalendarTest"/>
+            <parameter name="browser" value="edge"/>
+        </classes>
+    </test>
+</suite>
