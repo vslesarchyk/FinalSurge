@@ -1,4 +1,5 @@
 package pages;
+
 import com.codeborne.selenide.Selenide;
 import dto.AddWorkout;
 import io.qameta.allure.Step;
@@ -39,56 +40,63 @@ public class CalendarPage extends BasePage {
         return this;
     }
 
-    @Step("Добавление тренировки через кнопку Quick Add")
+    @Step("Adding a workout via a button Quick Add")
     public CalendarPage addQuickWorkoutWithButton() {
         $(QUICK_ADD_BUTTON).click();
+        log.info("Workout successfully added");
         return this;
     }
 
-    @Step("Выбор типа активности")
+    @Step("Selecting an activity type")
     public CalendarPage activityTypeQuickSelect(AddWorkout quickWorkout) {
         $(ACTIVITY_TYPE).selectOption(quickWorkout.getActivityType());
+        log.info("Activity type was successfully selected");
         return this;
     }
 
-    @Step("Нажать на кнопку Add Workout")
+    @Step("Click the button Add Workout")
     public CalendarPage clickAddWorkout() {
+        log.info("Clicking 'Add Workout' button");
         $(ADD_WORKOUT).click();
         return this;
     }
 
-    @Step("Созданная тренировка отображается на календаре")
+    @Step("The created workout is displayed on the calendar")
     public boolean workOutIsDisplayed() {
+        log.info("Workout successfully displayed on the calendar");
         return $(TODAY_DATA_DAY).$(DAY_CONTENT).$(EVENT_ACTIVITY_TITLE).isDisplayed();
     }
 
-    @Step("Ошибка на незаполненный тип активности")
+    @Step("Error on unfilled activity type")
     public String getActivityTypeError() {
         return $(ALERT_ERROR).getText();
     }
 
-    @Step("Добавление тренировки черз кнопку 'Full Add'")
+    @Step("Adding a workout via a button 'Full Add'")
     public CalendarPage clickFullWorkoutFromCalendar() {
+        log.info("Opening 'Full Add' workout form from Calendar");
         $(TODAY_DATA_DAY).$(PLUS_ON_THE_CALENDAR).hover().click();
         $(TODAY_DATA_DAY).$(FULL_ADD_FROM_THE_CALENDAR).shouldBe(visible).hover().click();
         return this;
     }
 
-    @Step("Добавление тренировки через календарь")
+    @Step("Quick adding a workout via calendar")
     public CalendarPage addQuickWorkoutFromCalendar() {
+        log.info("Opening 'Quick Add' workout form from Calendar");
         $(TODAY_DATA_DAY).$(PLUS_ON_THE_CALENDAR).hover().click();
         $(TODAY_DATA_DAY).$(QUICK_ADD_FROM_THE_CALENDAR).shouldBe(visible).hover().click();
         return this;
     }
 
-    @Step("Редактирование тренировки")
-        public CalendarPage editTraining() {
+    @Step("Editing workout")
+    public CalendarPage editTraining() {
+        log.info("Opening workout for editing");
         $(EVENT_ACTIVITY_TITLE).click();
         $(FULL_VIEW_BUTTON).click();
-            return this;
+        return this;
     }
 
-    @Step("Установка даты тренировки")
+    @Step("Setting the training date")
     public CalendarPage setWorkoutDate(int daysOffset) {
         LocalDate targetDate = LocalDate.now().plusDays(daysOffset);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M/dd/yyyy");

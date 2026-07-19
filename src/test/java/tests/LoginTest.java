@@ -1,19 +1,30 @@
 package tests;
 
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 public class LoginTest extends BaseTest {
 
-    @Test (
-            description = "Login verification with a positive login and password",
+    @Epic("Authorization")
+    @Feature("Authorization with valid credentials")
+    @Severity(SeverityLevel.NORMAL)
+    @Test(
+            description = "Verify successful authorization with valid credentials",
             groups = {"smoke", "regression"}
     )
     public void checkLoginWithPositiveCred() {
         loginPage.openPage()
                 .login(user, password)
                 .isPageOpened();
+        assertTrue(startPage.isLogoutButtonDisplayed(),
+                "Logout button is not displayed"
+        );
     }
 
     @DataProvider(name = "negativeLoginData Test")
@@ -26,8 +37,13 @@ public class LoginTest extends BaseTest {
         };
     }
 
-    @Test(dataProvider = "negativeLoginData Test",
-    groups = "regression")
+    @Epic("Authorization")
+    @Feature("Authorization with invalid credentials")
+    @Severity(SeverityLevel.NORMAL)
+    @Test(
+            dataProvider = "negativeLoginData Test",
+            groups = "regression"
+    )
     public void checkLoginWithNegativeCred(String user, String password, String expectedError, String errorType) {
         loginPage.openPage()
                 .loginWithNegativeCred(user, password);

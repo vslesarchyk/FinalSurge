@@ -9,6 +9,7 @@ import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.clickable;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$x;
 
 @Log4j2
 public class AddWorkoutPage extends BasePage {
@@ -20,6 +21,8 @@ public class AddWorkoutPage extends BasePage {
     private static final By MODAL_VIEW = By.cssSelector(".modal-footer");
     private static final By DELETE_CONFIRM_BUTTON = By.cssSelector("a:nth-of-type(1)");
     private static final String DELETE_BUTTON = "#del-workout";
+    private static final String ACTIVITY_TYPE_LOCATOR = "a[data-code='%s']";
+    private static final String SUB_TYPE_ACTIVITY_LOCATOR = "//a[text()='%s']";
 
     public AddWorkoutPage isPageOpened() {
         log.info("Opening WorkoutAdd Page");
@@ -32,32 +35,42 @@ public class AddWorkoutPage extends BasePage {
         return this;
     }
 
-    @Step("Выбор типа активности {typeActivity}, {subtypeActivity}")
+    @Step("Selecting an activity type {typeActivity}, {subtypeActivity}")
     public AddWorkoutPage activityTypeSelect(String typeActivity, String subtypeActivity) {
-        $(By.cssSelector("a[data-code='" + typeActivity + "']")).shouldBe(clickable).click();
-        $(By.xpath("//a[text()='" + subtypeActivity + "']")).shouldBe(clickable).click();
+        log.info("Selecting activity type: {}", typeActivity);
+        $(String.format(ACTIVITY_TYPE_LOCATOR, typeActivity))
+                .shouldBe(clickable)
+                .click();
+        $x(String.format(SUB_TYPE_ACTIVITY_LOCATOR, subtypeActivity))
+                .shouldBe(clickable)
+                .click();
         return this;
     }
 
-    @Step("Добавление названия тренировки")
+    @Step("Adding a workout title")
     public AddWorkoutPage addWorkoutName(AddWorkout fullWorkout) {
+        log.info("Adding Workout Name: {}", fullWorkout.getName());
         $(WORKOUT_NAME).setValue(fullWorkout.getName());
         return this;
     }
 
-    @Step("Нажать на кнопку Add Workout")
+    @Step("Click the button Add Workout")
     public AddWorkoutPage clickAddWorkout() {
+        log.info("Clicking 'Add Workout' button");
         $(ADD_WORKOUT).click();
         return this;
     }
 
-    @Step("Получение названия тренировки")
+    @Step("Getting the name of a workout")
     public String getWorkoutName() {
-        return $(DETAILS).$(FIND_NAME).text();
+        String workoutName = $(DETAILS).$(FIND_NAME).text();
+        log.info("Workout name: {}", workoutName);
+        return workoutName;
     }
 
-    @Step("Нажать на кнопку Delete")
+    @Step("Click the button Delete")
     public void deleteWorkout() {
+        log.info("Clicking 'Delete' button");
         $(DELETE_BUTTON).click();
         $(MODAL_VIEW).$(DELETE_CONFIRM_BUTTON).click();
     }

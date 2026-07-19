@@ -25,15 +25,23 @@ public class StartPage extends BasePage{
         return this;
     }
 
-    @Step("Нажатие на кнопку Login")
+    @Step("Click on the Login button")
     public LogoutPage clickLogoutButton() {
+        log.info("Clicking on login button");
         $(LOGOUT_BUTTON).click();
         return new LogoutPage();
     }
 
-    @Step("Нажатие на календарь")
+    @Step("Click on 'Calendar'")
     public CalendarPage clickCalendar() {
+        log.info("Clicking on Calendar");
         $(CALENDAR_PAGE).click();
         return new CalendarPage();
     }
+
+    @Step("Logout button is displayed")
+    public boolean isLogoutButtonDisplayed() {
+        log.info("Log out button is displayed");
+        return $(LOGOUT_BUTTON).isDisplayed();
+            }
 }
