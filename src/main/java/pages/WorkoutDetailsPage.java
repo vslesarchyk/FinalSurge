@@ -12,7 +12,6 @@ import static com.codeborne.selenide.Selenide.$;
 @Log4j2
 public class WorkoutDetailsPage extends BasePage {
     private static final String UPDATE_WORKOUT = ".dropdown-toggle";
-    private static final By WORKOUT_NAME = By.xpath(".//div[@class='formSep']//div[3]");
     private static final String WORKOUT_TIME = "#WorkoutTime";
     private static final String NAME = "#Name";
     private static final String DESC = "#Desc";
@@ -51,7 +50,7 @@ public class WorkoutDetailsPage extends BasePage {
         $(WORKOUT_TIME).setValue(editWorkout.getTimeOfDay());
         $(NAME).setValue(editWorkout.getName());
         $(DESC).setValue(editWorkout.getDescription());
-        $(PLANNED_WORKOUT).click();
+        $(PLANNED_WORKOUT).setSelected(true);
         $(PLANNED_DISTANCE).setValue(editWorkout.getPlannedDistance());
         $(PLANNED_DISTANCE_TYPE).selectOption(editWorkout.getPlannedDistanceType());
         $(PLANNED_DURATION).setValue(editWorkout.getPlannedDuration());
@@ -65,8 +64,9 @@ public class WorkoutDetailsPage extends BasePage {
         $(SAVE_LIBRARY).click();
     }
 
-    @Step("Сохранение изменений")
+    @Step("Saving changes")
     public void clickSaveUpdateDWorkout() {
+        log.info("Saving changes");
         $(SAVE_UPDATE_WORKOUT).click();
     }
 }

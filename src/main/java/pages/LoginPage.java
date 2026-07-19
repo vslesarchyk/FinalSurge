@@ -4,6 +4,7 @@ import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 
+import static com.codeborne.selenide.Condition.clickable;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 
@@ -27,33 +28,35 @@ public class LoginPage extends BasePage {
         return this;
     }
 
-    @Step("Авторизация")
+    @Step("Authorization")
     public StartPage login(String user, String password) {
         $(INPUT_EMAIL_FIELD).setValue(user);
         $(INPUT_PASSWORD_FIELD).setValue(password);
         $(LOGIN_BUTTON).click();
+        log.info("User successfully log in");
         return new StartPage();
     }
 
-    @Step("Авторизация с негативными кредами")
+    @Step("Authorization with negative credits")
     public LoginPage loginWithNegativeCred(String user, String password){
         $(INPUT_EMAIL_FIELD).setValue(user);
         $(INPUT_PASSWORD_FIELD).setValue(password);
         $(LOGIN_BUTTON).click();
+        log.info("User doesn't log in");
         return this;
     }
 
-    @Step("Получение ошибок логина")
+    @Step("Receiving login errors")
     public String getErrorEmailMessageText() {
         return $(ERROR_MESSAGE_EMAIL).text();
     }
 
-    @Step("Получение ошибок пароля")
+    @Step("Receiving password errors")
     public String getErrorPasswordMessageText() {
         return $(ERROR_MESSAGE_PASSWORD).text();
     }
 
-    @Step("Получение ошибок авторизации")
+    @Step("Receiving authorization errors")
     public String getErrorLoginCredentials() {
         return $(ERROR_LOGIN_CREDENTIALS).text();
     }

@@ -23,6 +23,9 @@ public class BaseTest {
     AddWorkoutPage addWorkoutPage;
     WorkoutDetailsPage workoutDetailsPage;
     DashboardPage dashboardPage;
+    ShoesPage shoesPage;
+    CalculatorPage calculatorPage;
+    ReportPage reportPage;
 
     String user = System.getProperty("user", PropertyReader.getProperty("user"));
     String password= System.getProperty("password", PropertyReader.getProperty("password"));
@@ -76,6 +79,9 @@ public class BaseTest {
         addWorkoutPage = new AddWorkoutPage();
         workoutDetailsPage = new WorkoutDetailsPage();
         dashboardPage = new DashboardPage();
+        shoesPage = new ShoesPage();
+        calculatorPage = new CalculatorPage();
+        reportPage = new ReportPage();
 
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide()
                 .screenshots(true)

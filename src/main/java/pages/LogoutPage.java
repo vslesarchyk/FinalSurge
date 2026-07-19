@@ -1,12 +1,9 @@
 package pages;
 
 import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
-
-import static com.codeborne.selenide.Condition.clickable;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 
@@ -26,7 +23,7 @@ public class LogoutPage extends BasePage {
         return this;
     }
 
-    @Step("Успешный выход из приложения")
+    @Step("Successfully log out the application")
     public String getSuccessfulLogOutMessage() {
         return $(LOGOUT_MESSAGE).getText();
     }
