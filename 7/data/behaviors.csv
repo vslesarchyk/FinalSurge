@@ -1,0 +1,6 @@
+"BROKEN","EPIC","FAILED","FEATURE","PASSED","SKIPPED","STORY","UNKNOWN"
+"0","","0","","1","0","","0"
+"0","Workouts","0","Edit workouts","1","0","","0"
+"0","Workouts","0","Add workouts","5","0","","0"
+"0","Authorization","0","Authorization with invalid credentials","4","0","","0"
+"0","Authorization","0","User logout","1","0","","0"
