@@ -104,7 +104,7 @@ public class DashboardPage extends BasePage {
         $(CALCULATOR_PAGE).click();
     }
 
-    @Step("Oper page 'Workout Report'")
+    @Step("Open page 'Workout Report'")
     public void clickWorkoutReportPage() {
         log.info("Opening workout report page");
         $(WORKOUT_REPORT_PAGE).click();

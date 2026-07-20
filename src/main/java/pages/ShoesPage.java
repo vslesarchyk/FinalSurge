@@ -7,6 +7,8 @@ import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 
+import java.time.Duration;
+
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
@@ -21,7 +23,7 @@ public class ShoesPage extends BasePage {
     private static final By EDIT_BUTTON = By.cssSelector(".btn.btn-mini");
     private static final String ERROR_MESSAGE = ".error";
     private static final By MODAL_VIEW = By.cssSelector(".modal-footer");
-    private static final By DELETE_CONFIRM_BUTTON =  By.xpath(".//*[self::a or self::button][normalize-space()='OK']");
+    private static final By DELETE_CONFIRM_BUTTON = By.xpath(".//*[self::a or self::button][normalize-space()='OK']");
     private static final By DELETE_BUTTON = By.cssSelector("a[title='Delete'][href*='delete=']");
     private static final String BRAND = "#ShoeBrand";
     private static final String MODEL = "#ShoeModel";
@@ -75,10 +77,10 @@ public class ShoesPage extends BasePage {
                 .build();
     }
 
-    @Step("Check for shoe availability {shoeName}")
+    @Step("Check whether shoe '{shoeName}' is present")
     public boolean isShoePresent(String shoeName) {
         return $$(TABLE_DATE_SELECTION)
-                .findBy(Condition.text(shoeName))
+                .findBy(Condition.exactText(shoeName))
                 .exists();
     }
 
@@ -88,17 +90,19 @@ public class ShoesPage extends BasePage {
         return this;
     }
 
-    @Step("Error message about shoe name")
-    public ShoesPage getShoeNameError() {
-        $(ERROR_MESSAGE).getText();
-        return this;
+    @Step("Get Shoe Name error message")
+    public String getShoeNameError() {
+        return $(ERROR_MESSAGE)
+                .shouldBe(visible)
+                .getText();
     }
 
     @Step("Removing shoes")
     public ShoesPage deleteShoes(String shoeName) {
         log.info("Removing shoes");
         clickDeleteButton(shoeName);
-        $(MODAL_VIEW).$(DELETE_CONFIRM_BUTTON).click();
+        $(MODAL_VIEW).$(DELETE_CONFIRM_BUTTON).shouldBe(clickable).click();
+        $(MODAL_VIEW).shouldBe(disappear);
         return this;
     }
 

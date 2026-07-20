@@ -21,6 +21,7 @@
                     <include name="checkLoginWithNegativeCred"></include>
                 </methods>
             </class>
+            <class name="tests.LogoutTest"/>
         </classes>
     </test>
 
@@ -32,7 +33,9 @@
         </groups>
         <classes>
             <class name="tests.CalendarTest"/>
-            <class name="tests.LogoutTest"> </class>
+            <class name="tests.ShoesTest"/>
+            <class name="tests.CalculatorTest"/>
+            <class name="tests.ReportTest"/>
         </classes>
     </test>
 </suite>
