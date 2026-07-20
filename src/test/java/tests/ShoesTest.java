@@ -56,7 +56,6 @@ public class ShoesTest extends BaseTest {
                 .isPageOpened()
                 .quickAddShoesInput(shoes)
                 .clickAddShoesButton();
-        shoesPage.addShoesWait();
         assertEquals(shoesPage.getShoeNameError(), SHOE_NAME_ERROR, "Incorrect error message");
     }
 
