@@ -1,0 +1,638 @@
+<html lang="en-US"><head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Final Surge - Equipment - Shoes</title>
+        <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+        <link href="img/branded/finalsurge-icon-32.png" rel="shortcut icon" type="image/x-icon">                    
+
+        <!-- common stylesheets-->
+        <!-- bootstrap framework css -->
+            <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+            <link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.min.css">
+        <!-- iconSweet2 icon pack (16x16) -->
+            <link rel="stylesheet" href="img/icsw2_16/icsw2_16.css">
+        <!-- splashy icon pack -->
+            <link rel="stylesheet" href="img/splashy/splashy.css">
+        <!-- flag icons -->
+            <link rel="stylesheet" href="img/flags/flags.css">
+        <!-- power tooltips -->
+            <link rel="stylesheet" href="js/lib/powertip/jquery.powertip.css">
+        <!-- google web fonts -->
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abel">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300">
+
+        <!-- aditional stylesheets -->
+            <link rel="stylesheet" href="js/lib/reveal/reveal.css?jsver=200">
+        <!--fullcalendar -->
+            <link rel="stylesheet" href="js/lib/fullcalendar/fullcalendar_beoro.css">
+
+        <!-- main stylesheet -->
+            <link rel="stylesheet" href="css/main.css?jsver=110">
+            <link rel="stylesheet" href="css/main.responsive.css">
+
+        <!--[if lte IE 8]><link rel="stylesheet" href="css/ie8.css"><![endif]-->
+        <!--[if IE 9]><link rel="stylesheet" href="css/ie9.css"><![endif]-->
+            
+        <!--[if lt IE 9]>
+            <script src="js/ie/html5shiv.min.js"></script>
+            <script src="js/ie/respond.min.js"></script>
+            <script src="js/lib/flot-charts/excanvas.min.js"></script>
+        <![endif]-->        
+        
+        
+        <!-- enchanced select box, tag handler -->
+        <link rel="stylesheet" href="js/lib/select2/select2.css">
+        <!-- colorbox -->
+        <link rel="stylesheet" href="js/lib/colorbox/colorbox.css">
+        <!-- datepicker -->
+        <link rel="stylesheet" href="js/lib/bootstrap-datepicker/css/datepicker.css">
+    <style type="text/css">
+        .bootbox {
+            width: 700px;
+            margin-left: -350px;
+        }
+    </style>
+
+        <style>
+            a { color: #c61201; }
+            a:hover { color: #c61201; }
+            header { background: #e9e9e9; }
+            header a { color: #c61201; }
+            header a:hover { color: #c61201; }
+            #breadcrumbs a:hover { background: #c61201; }
+            #breadcrumbs a:hover::before { border-color: #c61201 #c61201 #c61201 rgba(255,255,255,0); }
+            #breadcrumbs a:hover::after { border-left-color: #c61201; }   
+            
+            .w-box-blue .w-box-header { background: #368ca9 }
+            .fc-header-left .fc-state-active,.fc-header-left .fc-state-active:hover {
+	            background: #368ca9 !important;
+	            border: 1px solid #368ca9;
+	            color: #fff;
+	            text-shadow: none;
+	            cursor: default;
+            }                     
+        </style>
+        <style>
+            #fade-menu {
+            font-size: 11px !important;
+            font-weight: 400 !important;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+        </style>
+        <script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script><script type="text/javascript">
+            var JSSettingDatePickerOptions = {weekStart: 0 };
+        </script>
+    </head>
+    <body>
+
+    <!-- main wrapper (without footer) -->    
+        <div class="main-wrapper">
+        <!-- top bar -->
+            <div class="navbar navbar-fixed-top">
+                <div class="navbar-inner">
+                    <div class="container">
+                        <div class="pull-right top-search">
+                            <div style="padding-top: 7px; padding-right: 20px; font-size: 11px; color: #e9e9e9;">
+                                <a href="CoachingUpgrade.cshtml"><span class="badge pop-over" data-content="If you are a coach, click here to upgrade to a Coaching Account.  If you are not a coach, this link can be removed by going into your Settings and turning the Coaching Functionality off." data-title="Coaching Account Features" data-placement="bottom" data-trigger="hover" style="margin-right: 15px;" data-original-title="" title="">Upgrade to Coaching Account</span></a>
+                                <a href="Calendar.cshtml?m=7&amp;d=20&amp;y=2026" class="currentdatelink">Monday, July 20, 2026</a>
+                            </div>                            
+                        </div>
+                        <div id="fade-menu" class="pull-left">
+                            <ul class="clearfix" id="mobile-nav">
+                                <li>
+                                    <a href="javascript:void(0)" class="arrow_down">Workouts</a>
+                                    <ul style="top: 34px; display: none; visibility: visible;">
+                                        <li>
+                                            <a href="WorkoutAdd.cshtml">Add Workout</a>
+                                        </li>
+                                        <li>
+                                            <a href="DeviceImport/Garmin/Default.cshtml">Garmin / Device Upload</a>
+                                        </li>
+                                        <li>
+                                            <a href="Calendar.cshtml">View Calendar</a>
+                                        </li>
+                                        <li>
+                                            <a href="WorkoutReport.cshtml">Reports &amp; Statistics</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" data-reveal-id="PrintWorkouts" data-animation="fade" data-reveal-iframe="PrintWorkoutsiFrame" data-reveal-iframeurl="https://log.finalsurge.com/PrintWorkoutsSelect.cshtml?ssl=1">Print Workouts</a>
+                                        </li>
+                                        <li>
+                                            <a href="WorkoutLibrary.cshtml">Workout Library</a>
+                                        </li>
+                                        <li>
+                                            <a href="ActivityZones.cshtml">HR/Power/Pace Zones</a>
+                                        </li>
+                                        <li>
+                                            <a href="Activities.cshtml">Customize Activity Types</a>
+                                        </li>
+                                        <li>
+                                            <a href="ImportData.cshtml">Import Data</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><a href="DailyVitals.cshtml" class="arrow_down">Daily Vitals</a>
+                                    <ul style="top: 34px; display: none; visibility: visible;">
+                                        <li><a href="DailyVitals.cshtml">View &amp; Add Vitals</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="Equipment.cshtml" class="arrow_down">Gear &amp; Routes</a>
+                                    <ul style="top: 34px; display: none; visibility: visible;">
+                                        <li><a href="EquipmentShoes.cshtml">Shoes</a></li>
+                                        <li><a href="EquipmentBikes.cshtml">Bikes</a></li>
+                                        <li><a href="Routes.cshtml">Routes</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="TrainingPlans.cshtml" class="arrow_down">Training Plans</a>
+                                    <ul style="top: 34px; display: none; visibility: visible;">
+                                        <li><a href="TrainingPlans.cshtml">View My Plans</a></li>
+                                        <li><a href="http://www.finalsurge.com/trainingplans">Find a Plan</a></li>
+                                    </ul>
+                                </li>                                            
+                                <li><a href="Resources" class="arrow_down">Resources</a>
+                                    <ul style="top: 34px; display: none; visibility: visible;">
+                                        <li><a href="Resources">View Files &amp; Resources</a></li>
+                                    </ul>
+                                </li>                                     
+                                <li><a href="TeamForum/default" class="arrow_down">Message Boards</a>
+                                    <ul style="top: 34px; display: none; visibility: visible;">
+                                        <li><a href="TeamForum/default">View Boards</a></li>
+                                    </ul>
+                                </li>                                   
+                            </ul><select class="selectnav" id="selectnav1"><option value="">- Navigation -</option><option value="javascript:void(0)">Workouts</option><option value="https://log.finalsurge.com/WorkoutAdd.cshtml">- Add Workout</option><option value="https://log.finalsurge.com/DeviceImport/Garmin/Default.cshtml">- Garmin / Device Upload</option><option value="https://log.finalsurge.com/Calendar.cshtml">- View Calendar</option><option value="https://log.finalsurge.com/WorkoutReport.cshtml">- Reports &amp; Statistics</option><option value="https://log.finalsurge.com/EquipmentShoes.cshtml#">- Print Workouts</option><option value="https://log.finalsurge.com/WorkoutLibrary.cshtml">- Workout Library</option><option value="https://log.finalsurge.com/ActivityZones.cshtml">- HR/Power/Pace Zones</option><option value="https://log.finalsurge.com/Activities.cshtml">- Customize Activity Types</option><option value="https://log.finalsurge.com/ImportData.cshtml">- Import Data</option><option value="https://log.finalsurge.com/DailyVitals.cshtml">Daily Vitals</option><option value="https://log.finalsurge.com/DailyVitals.cshtml">- View &amp; Add Vitals</option><option value="https://log.finalsurge.com/Equipment.cshtml">Gear &amp; Routes</option><option value="https://log.finalsurge.com/EquipmentShoes.cshtml" selected="">- Shoes</option><option value="https://log.finalsurge.com/EquipmentBikes.cshtml">- Bikes</option><option value="https://log.finalsurge.com/Routes.cshtml">- Routes</option><option value="https://log.finalsurge.com/TrainingPlans.cshtml">Training Plans</option><option value="https://log.finalsurge.com/TrainingPlans.cshtml">- View My Plans</option><option value="http://www.finalsurge.com/trainingplans">- Find a Plan</option><option value="https://log.finalsurge.com/Resources">Resources</option><option value="https://log.finalsurge.com/Resources">- View Files &amp; Resources</option><option value="https://log.finalsurge.com/TeamForum/default">Message Boards</option><option value="https://log.finalsurge.com/TeamForum/default">- View Boards</option></select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <!-- header -->
+            <header>
+                <div class="container">
+                    <div class="row">
+                        <div class="span3">
+                            <div class="main-logo"><a href="default.cshtml"><img src="https://finalsurgelivestore.blob.core.windows.net/branding/finalsurge_logo.png" alt="Final Surge"></a></div>
+                        </div>
+                        <div class="span6">
+                            <nav class="nav-icons">
+                                <ul>
+                                    <li><a href="Default.cshtml" class="ptip_s"><i class="icsw16-home"></i></a></li>
+                                    <li><a href="Calendar.cshtml" class="ptip_s"><i class="icsw16-day-calendar"></i></a></li>
+                                    <li><a href="#" class="ptip_s" data-reveal-id="IntensityCalc" data-animation="fade" data-reveal-iframe="IntensityCalciFrame" data-reveal-iframeurl="https://log.finalsurge.com/WorkoutIntensityCalc.cshtml?ssl=1"><i class="icsw16-stop-watch"></i></a></li>
+                                    <li><a href="#" class="ptip_s" data-reveal-id="OtherCalc" data-animation="fade" data-reveal-iframe="OtherCalciFrame" data-reveal-iframeurl="https://log.finalsurge.com/CaloricNeedsCalc.cshtml?ssl=1"><i class="icsw16-calculator"></i></a></li>
+                                    <li><a href="WorkoutReport.cshtml" class="ptip_s"><i class="icsw16-graph"></i></a></li>
+                                    <li><a href="Mailbox.cshtml" class="ptip_s"><i class="icsw16-mail"></i>
+</a></li>
+                                    <!--<li><a href="javascript:void(0)" class="ptip_s" title="System Messages (Coming Soon)"><i class="icsw16-speech-bubbles"></i><span class="badge badge-important">14</span></a></li>-->
+                                    <li><a href="#" class="ptip_s" data-reveal-id="PrintWorkouts" data-animation="fade" data-reveal-iframe="PrintWorkoutsiFrame" data-reveal-iframeurl="https://log.finalsurge.com/PrintWorkoutsSelect.cshtml?ssl=1"><i class="icsw16-printer"></i></a></li>
+                                    <li><a href="app/betaredirect" class="ptip_s"><i class="icsw16-computer_imac"></i><span class="badge badge-info">New</span></a></li>                                    
+                                </ul>
+                             </nav>
+                        </div>
+                        <div class="span3">
+                            <div class="user-box">
+                                <div class="user-box-inner">
+                                    <img id="LayoutProfilePic" src="img/default-profile60x60.png" alt="" class="user-avatar img-avatar">
+                                    <div class="user-info">
+                                        Welcome, <strong>Veronika</strong>
+                                        <ul class="unstyled">
+                                            <li><a href="UserProfile.cshtml">Settings</a></li>
+                                            <li>·</li>
+                                            <li><a href="logout.cshtml">Logout</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+        <!-- breadcrumbs -->
+            <div class="container">
+                <ul id="breadcrumbs">
+                    <li><a href="default.cshtml"><i class="icon-home"></i></a></li>
+                                     
+                    <li><a href="Equipment.cshtml">Equipment</a></li>   
+                    <li><a href="EquipmentShoes.cshtml">Shoes</a></li>
+                    <li><span>Keep track of shoe mileage.</span></li>
+
+                </ul>
+            </div>
+            
+        <!-- main content -->
+            <div class="container">
+                
+
+
+
+
+
+                
+                <div class="row-fluid">
+                    <div class="span12">
+                        <div class="row-fluid">
+                            <div class="span4">                                                                 
+                                <div class="w-box w-box-green">
+                                    <div class="w-box-header">
+                                        <h4>Add New Shoe</h4>
+                                    </div>
+                                    <div class="w-box-content" id="ShoeEditForm">
+                                        <form action="EquipmentShoes.cshtml" method="post" id="shoe-add" novalidate="novalidate">
+                                        <input type="hidden" value="1" name="add">
+                                        <input type="hidden" value="" name="view">
+                                            <div class="formSep">
+                                                <div class="row-fluid">
+                                                    <label>Shoe Image</label>
+                                                    <label for="addImage" class="checkbox inline">
+                                                        <input type="checkbox" name="addImage" id="addImage" value="True">
+                                                        <span class="label label-warning">Add image after save</span>         <i class="splashy-help pop-over" data-content="Check this box if you would like to upload an image of your shoe directly after clicking the Add Shoe button.  If you choose no, you can always upload an image later by editing your shoe." data-title="Upload Shoe Image" data-placement="right" data-trigger="hover" data-original-title="" title=""></i>   
+
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="formSep f-error">
+                                                <label for="ShoeName" class="req">Shoe Name</label>
+                                                <input type="text" id="ShoeName" name="ShoeName" class="span12" value="">             
+                                            <label for="ShoeName" generated="true" class="error">This field is required.</label></div>
+                                            <div class="formSep">                                               
+                                                <label for="ShoeBrand">Brand</label>
+                                                <div class="select2-container span12" id="s2id_ShoeBrand">    <a href="#" onclick="return false;" class="select2-choice select2-default">   <span>Select Brand...</span><abbr class="select2-search-choice-close" style="display:none;"></abbr>   <div><b></b></div></a>    <div class="select2-drop select2-offscreen">   <div class="select2-search">       <input type="text" autocomplete="off" class="select2-input">   </div>   <ul class="select2-results">   </ul></div></div><select id="ShoeBrand" name="ShoeBrand" class="span12" style="display: none;">
+                                                    <option value=""></option>
+                                                    <option value="938ec6b2-6ab7-4058-b160-041f7fdf2148">adidas</option>
+                                                    <option value="a116bd4f-93a6-42a5-b092-6ba43763beb1">Altra</option>
+                                                    <option value="822d4f52-de6d-4890-8dce-af1a411c3856">ASICS</option>
+                                                    <option value="699036fd-71be-4e9e-828f-c5021d2f39cd">Avia</option>
+                                                    <option value="9f70a5f1-0005-4044-a16d-047dca479c3d">Brooks</option>
+                                                    <option value="f17db8ba-4976-414a-87dd-92b84804cc8c">Hoka One One</option>
+                                                    <option value="5bec00a3-5eee-49cc-9d07-e0dcda3d743c">Inov-8</option>
+                                                    <option value="985c3fd9-b712-4ff3-af86-f32ba23e84f3">K-SWISS</option>
+                                                    <option value="ff4afc61-4f93-4cb4-bd82-e560c4594ef2">Merrell</option>
+                                                    <option value="9ec8c99b-d89a-4e10-a019-dbffc5ebc885">Mizuno</option>
+                                                    <option value="aa2aea5e-7ad9-4276-807b-58a963263752">Montrail</option>
+                                                    <option value="60217341-9d11-44f1-9fa0-4d4919ceff0c">New Balance</option>
+                                                    <option value="81a818cd-74de-448c-874d-19761eec0dad">Newton Running</option>
+                                                    <option value="0ae889e8-32a7-496d-bd35-f0a7c85feae1">Nike</option>
+                                                    <option value="3d001a92-dac9-4a19-aa6d-2937461bab10">NOBULL</option>
+                                                    <option value="b19b0ad7-d814-4402-86de-1d15b8082389">On</option>
+                                                    <option value="56a37707-e240-4aba-8746-bf4119b4b14c">Pearl Izumi</option>
+                                                    <option value="ccd2de6d-f5a2-42de-bda1-11fac2984ddb">Puma</option>
+                                                    <option value="2fe4f65f-6961-48d0-8f45-f6e36397aa29">Reebok</option>
+                                                    <option value="680d7a99-c625-4cf3-a30d-6e6736b43d0d">Ryka</option>
+                                                    <option value="e8cf573f-89c2-4d30-b560-c1b4a0ac063d">Salomon</option>
+                                                    <option value="b2d3061d-dd5f-47fb-904a-592748a5659e">Saucony</option>
+                                                    <option value="c99f03e5-31df-4a20-8e99-15719987d3c5">SCOTT</option>
+                                                    <option value="4af4c2ad-3072-4d37-a281-99065b38bbdc">Skechers</option>
+                                                    <option value="9230042d-01b8-4391-844c-6993f24b84c1">SKORA</option>
+                                                    <option value="d921c9b8-6406-4bad-a761-b2b098713dfd">Spira</option>
+                                                    <option value="c77d2846-3b4e-4711-ab73-1ee684dd07b7">UK Gear</option>
+                                                    <option value="a470e79f-1397-483b-aba4-4adb80b2ddd7">Under Armour</option>
+                                                    <option value="1e671ef5-2545-435a-8bc3-1aea7226be2d">Vibram FiveFingers</option>
+                                                    <option value="a524409d-8ee8-4d0a-a215-043025633354">VIVOBAREFOOT</option>
+                                                    <option value="5dfcd222-ce17-4a8f-bfc2-d0fcb8460e94">Zoot</option>
+                                                </select>                                                                                   
+                                                <label for="ShoeModel">Model</label>
+                                                <input type="text" id="ShoeModel" name="ShoeModel" class="span12" value="">                                              
+                                            </div>
+                                            <div class="formSep">
+                                                <div class="row-fluid">
+                                                    <div class="span6">
+                                                        <div class="input-prepend input-append">
+                                                            <label for="ShoeCost">Cost</label>
+                                                            <span class="add-on">$</span><input type="text" size="16" class="span8" name="ShoeCost" id="ShoeCost" value="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="span6">
+                                                        <label for="ShoeDate">Date Purchased</label>
+                                                        <input id="ShoeDate" name="ShoeDate" data-date="7/20/2026" class="span10" data-date-format="mm/dd/yyyy" value="" type="text">
+                                                        <span class="help-block" style="margin-bottom: 0px;">mm/dd/yyyy</span>
+                                                    </div>
+                                                </div>   
+                                                <div class="row-fluid" style="margin-top: 0px;">
+                                                    <div class="span6">
+                                                        <label for="ShoeSize">Shoe Size</label>
+                                                        <select id="ShoeSize" name="ShoeSize" class="span10"><option value="">Select Size...</option><option value="1">1</option>
+                                                            <option value="1.5">1.5</option>
+                                                            <option value="2">2</option>
+                                                            <option value="2.5">2.5</option>
+                                                            <option value="3">3</option>
+                                                            <option value="3.5">3.5</option>
+                                                            <option value="4">4</option>
+                                                            <option value="4.5">4.5</option>
+                                                            <option value="5">5</option>
+                                                            <option value="5.5">5.5</option>
+                                                            <option value="6">6</option>
+                                                            <option value="6.5">6.5</option>
+                                                            <option value="7">7</option>
+                                                            <option value="7.5">7.5</option>
+                                                            <option value="8">8</option>
+                                                            <option value="8.5">8.5</option>
+                                                            <option value="9">9</option>
+                                                            <option value="9.5">9.5</option>
+                                                            <option value="10">10</option>
+                                                            <option value="10.5">10.5</option>
+                                                            <option value="11">11</option>
+                                                            <option value="11.5">11.5</option>
+                                                            <option value="12">12</option>
+                                                            <option value="12.5">12.5</option>
+                                                            <option value="13">13</option>
+                                                            <option value="13.5">13.5</option>
+                                                            <option value="14">14</option>
+                                                            <option value="14.5">14.5</option>
+                                                            <option value="15">15</option>
+                                                            <option value="15.5">15.5</option>
+                                                            <option value="16">16</option>
+                                                            <option value="16.5">16.5</option>
+                                                            <option value="17">17</option>
+                                                            <option value="17.5">17.5</option>
+                                                            <option value="18">18</option>
+                                                            <option value="18.5">18.5</option>
+                                                            <option value="19">19</option>
+                                                            <option value="19.5">19.5</option>
+                                                            <option value="20">20</option>
+                                                        </select> 
+                                                    </div>
+                                                </div>                                             
+                                            </div>
+                                            <div class="formSep">
+                                                <div class="row-fluid">
+                                                    <label for="StartDist">Starting Distance</label>
+                                                    <input type="text" class="span5" id="StartDist" name="StartDist" value="0.00" maxlength="9">  
+                                                    <select id="DistType" name="DistType" class="span3"><option value="mi">mi</option><option value="km">km</option></select>  
+                                                </div>                                           
+                                            </div>
+                                            <div class="formSep">
+                                                <div class="row-fluid">
+                                                    <label for="DistAlert">Distance Alert</label>
+                                                    <input type="text" class="span5" id="DistAlert" name="DistAlert" value="" maxlength="9">  
+                                                    <select id="DistAlertType" name="DistAlertType" class="span3"><option value="mi">mi</option><option value="km">km</option></select>  
+                                                    <span class="help-block">Enter a distance value to be alerted when it's time to replace this shoe.</span>
+                                                </div>                                           
+                                            </div>
+                                            <div class="formSep">
+                                                <label for="ShoeNotes">Notes</label>
+                                                <textarea rows="3" class="span12" name="ShoeNotes" id="ShoeNotes"></textarea>
+                                            </div>
+                                            <div class="formSep sepH_b">
+                                                <input type="submit" class="btn btn-success" name="btnSubmit" value="Add Shoe" id="saveButton">                                                
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="span8">                                
+                                <div class="w-box">
+                                    <div class="w-box-header">
+                                        <h4>Current Shoes</h4>
+                                        <div class="pull-right">
+                                            <div class="toggle-group">
+                                                <span data-toggle="dropdown" class="dropdown-toggle">View <span class="caret"></span></span>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="EquipmentShoes.cshtml?view=current">Current</a></li>
+                                                    <li><a href="EquipmentShoes.cshtml?view=retired">Retired</a></li>
+                                                    <li><a href="EquipmentShoes.cshtml?view=all">All</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="w-box-content">                                        
+                                                            <div style="text-align: center; padding: 20px;">
+                                                                <div class="hero-unit" style="margin-top: 30px;">
+                                                                    <p style="text-align: center;">You have no Current shoes. Add one now by using the Add New Shoe form.</p>
+                                                                    <p style="text-align: center;"><img alt="" src="img/shoe_100x100.gif" class="shoeimg cboxElement"></p>
+                                                                </div>                           
+                                                            </div>                              
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div class="footer_space"></div>
+        </div> 
+        <div id="IntensityCalc" class="reveal-modal largeplus">            
+            <iframe id="IntensityCalciFrame" width="641" height="660" style="border-width: 0px;"></iframe>
+            <a class="close-reveal-modal">×</a>
+        </div>
+        <div id="OtherCalc" class="reveal-modal large">            
+            <iframe id="OtherCalciFrame" width="541" height="660" style="border-width: 0px;"></iframe>
+            <a class="close-reveal-modal">×</a>
+        </div>    
+        <div id="ColorCompletion" class="reveal-modal large">            
+            <iframe id="ColorCompletioniFrame" width="541" height="660" style="border-width: 0px;"></iframe>
+            <a class="close-reveal-modal">×</a>
+        </div>    
+        <div id="WorkoutComments" class="reveal-modal large">            
+            <iframe id="WorkoutCommentsiFrame" width="541" height="660" style="border-width: 0px;"></iframe>
+            <a class="close-reveal-modal">×</a>
+        </div>
+        <div id="CopyWeeks" class="reveal-modal large">            
+            <iframe id="CopyWeeksiFrame" width="541" height="660" style="border-width: 0px;"></iframe>
+            <a class="close-reveal-modal">×</a>
+        </div>
+        <div id="ViewMessage" class="reveal-modal large">            
+            <iframe id="ViewMessageiFrame" width="541" height="660" style="border-width: 0px;"></iframe>
+            <a class="close-reveal-modal">×</a>
+        </div>          
+        <div id="WorkoutUpload" class="reveal-modal large">            
+            <iframe id="WorkoutUploadiFrame" width="541" height="660" style="border-width: 0px;"></iframe>
+            <a class="close-reveal-modal">×</a>
+        </div>
+        <div id="TrainingPlanDetails" class="reveal-modal large">            
+            <iframe id="TrainingPlanDetailsiFrame" width="541" height="660" style="border-width: 0px;"></iframe>
+            <a class="close-reveal-modal">×</a>
+        </div>
+        <div id="PrintWorkouts" class="reveal-modal large">            
+            <iframe id="PrintWorkoutsiFrame" width="541" height="600" style="border-width: 0px;"></iframe>
+            <a class="close-reveal-modal">×</a>
+        </div>    
+        <div id="PainInjuryModal" class="reveal-modal xxlarge" style="height:600px;background: white;">
+            <iframe id="PainInjuryFrame" scrolling="no" width="1000" style="border-width: 0px;height:100%;"></iframe>
+            <a class="close-reveal-modal">×</a>
+        </div>    
+        <div id="WorkoutCreatorModal" class="reveal-modal xxlarge" style="height:89vh;background: white;padding: 30px 0 30px 0;position:fixed;top: 40px;">
+            <iframe id="WorkoutCreatorFrame" width="1000" style="border-width: 0px;height:100%;"></iframe>
+            <a class="close-reveal-modal">×</a>
+        </div>    
+    <!-- footer --> 
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="span5">
+                        <div>Copyright © 2026 Final Surge LLC.</div>
+                    </div>
+                    <div class="span7" style="text-align: right;">
+                        <ul class="unstyled">
+                            <li><a href="Feedback.cshtml">Give Feedback</a></li>
+                            <li>·</li>
+                            <li><a href="CustSupport.cshtml">Customer Support</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        
+    <!-- Common JS -->
+        <!-- jQuery framework -->
+            <script src="js/jquery.min.js"></script>
+            <script src="js/lib/jquery-cookie/jquery.cookie.js"></script>
+            <script src="js/FSErrors.js"></script>
+        <!-- bootstrap Framework plugins -->
+            <script src="bootstrap/js/bootstrap.js"></script>
+        <!-- top menu -->
+            <script src="js/jquery.fademenu.js"></script>
+        <!-- top mobile menu -->
+            <script src="js/selectnav.min.js"></script>
+        <!-- actual width/height of hidden DOM elements -->
+            <script src="js/jquery.actual.min.js"></script>
+        <!-- jquery easing animations -->
+            <script src="js/jquery.easing.1.3.min.js"></script>
+        <!-- power tooltips -->
+            <script src="js/lib/powertip/jquery.powertip-1.1.0.min.js"></script>
+        <!-- date library -->
+            <script src="js/moment.min.js"></script>
+        <!-- common functions -->
+            <script src="js/beoro_common.js"></script>
+            <script src="js/form/bootstrap-fileupload.js"></script>
+        <!-- save panels -->
+            <script src="js/lib/jquery-ui/jquery-ui.js"></script>
+        <!-- reveal modal -->
+            <script src="js/lib/reveal/jquery.reveal.js?ver=4"></script>
+                
+    <!-- table rowlink -->
+    <script src="js/bootstrap-rowlink.min.js"></script>
+    <!-- enchanced select box, tag handler -->
+    <script src="js/lib/select2/select2.min.js"></script>
+    <!-- colorbox -->
+    <script src="js/lib/colorbox/jquery.colorbox.min.js"></script>
+    <!-- datepicker -->
+        <script charset="utf-8" type="text/javascript" src="js/lib/bootstrap-datepicker/js/bootstrap-datepicker.en.js?111"></script>
+
+    <!--validation-->
+    <script src="js/lib/jquery-validation/jquery.validate.js"></script>
+    <!-- FSProgress -->
+    <script src="js/lib/fsprogress/fsprogress.js?v=2"></script>
+
+    <div id="AjaxGrey1" style="position: absolute; display:none; z-index: 99999;">
+        <div style="float:left; height: 100%; width: 100%; background: #b1b1b1; filter: alpha(opacity=30);opacity: 0.30;-moz-opacity:0.30;-ms-filter:'progid:DXImageTransform.Microsoft.Alpha(Opacity=30)'"></div>
+    <div style="position:absolute; bottom: 50%; left: 50%; width: 32px; height: 32px; margin-top: -16px; margin-left: -16px;">
+        <img src="/img/loading.gif">
+    </div>
+</div>
+<div id="AjaxLoading1" style="position: absolute; display:none; z-index: 99999;">
+    <div style="float:left; height: 100%; width: 100%; background: #FFFFFF; filter: alpha(opacity=80);opacity: 0.80;-moz-opacity:0.80;-ms-filter:'progid:DXImageTransform.Microsoft.Alpha(Opacity=80)'"></div>
+    <div style="position:absolute; top: 50%; left: 50%; width: 16px; height: 16px; margin-top: -10px; margin-left: -8px;">
+        <img src="/img/loading-sm.gif">
+    </div>
+</div>
+
+    <script>
+        $(document).ready(function () {
+            FSProgress.Init();
+            $('#saveButton').click(function (e) {
+                if ($('#shoe-add').valid())
+                    FSProgress.ShowWorking('AddEditForm', 'AjaxGrey1', 'ShoeEditForm', 'AjaxLoading1', 'saveButton');
+            });
+        });
+    </script>
+
+
+    <script>
+    $(document).ready(function() {
+        //* enchanced select box
+        beoro_enchancedSelect.init();
+        //*datepicker
+        beoro_datepicker.init();
+        //* form validation
+        beoro_validate.simple();       
+
+        //* colorbox
+        $(".shoeimg").colorbox({
+            href        : $(this).attr('href'),
+            opacity     : '0.4', 
+            loop        : false,
+            fixed: true,
+            photo: true
+        });
+    });
+
+    //* enchanced select box
+    beoro_enchancedSelect = {
+        init: function () {
+            if ($('#ShoeBrand').length) {
+                $("#ShoeBrand").select2({
+                    placeholder: "Select Brand...",
+                    allowClear: true
+                });
+            }
+        }
+    };
+
+    //* datepicker
+    beoro_datepicker = {
+        init: function () {
+            if ($('#ShoeDate').length) {
+                $('#ShoeDate').datepicker(JSSettingDatePickerOptions).on('changeDate', function () {
+                    $('#ShoeDate').datepicker('hide');
+                });
+            }
+            if ($('#RetireDate').length) {
+                $('#RetireDate').datepicker(JSSettingDatePickerOptions).on('changeDate', function () {
+                    $('#RetireDate').datepicker('hide');
+                });
+            }
+        }
+    };
+
+    //* form validation
+    beoro_validate = {
+        simple: function () {
+            if ($('#shoe-add').length) {
+                $('#shoe-add').validate({
+                    //onkeyup: false,
+                    errorClass: 'error',
+                    validClass: 'valid',
+                    highlight: function (element) {
+                        $(element).closest('div').addClass("f-error");
+                    },
+                    unhighlight: function (element) {
+                        $(element).closest('div').removeClass("f-error");
+                    },
+                    errorPlacement: function (error, element) {
+                        $(element).closest('div').append(error);
+                    },
+                    rules: {
+                        ShoeName: { required: true }
+                    },
+                    invalidHandler: function (form, validator) {
+                        // callback
+                    }
+                })
+            }
+        }
+    }
+    </script>
+
+
+       
+  
+
+
+        <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-44510237-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+    
+<div id="powerTip"></div><a href="javascript:void(0)" class="scrollup" style="display:none"><i class="icon-chevron-up icon-white"></i></a><div id="cboxOverlay" style="display: none;"></div><div id="colorbox" class="" style="display: none; padding-bottom: 32px; padding-right: 60px;"><div id="cboxWrapper"><div><div id="cboxTopLeft" style="float: left;"></div><div id="cboxTopCenter" style="float: left;"></div><div id="cboxTopRight" style="float: left;"></div></div><div style="clear: left;"><div id="cboxMiddleLeft" style="float: left;"></div><div id="cboxContent" style="float: left;"><div id="cboxLoadedContent" style="width: 0px; height: 0px; overflow: hidden; float: left;"></div><div id="cboxLoadingOverlay" style="float: left;"></div><div id="cboxLoadingGraphic" style="float: left;"></div><div id="cboxTitle" style="float: left;"></div><div id="cboxCurrent" style="float: left;"></div><div id="cboxNext" style="float: left;"></div><div id="cboxPrevious" style="float: left;"></div><div id="cboxSlideshow" style="float: left;"></div><div id="cboxClose" style="float: left;"></div></div><div id="cboxMiddleRight" style="float: left;"></div></div><div style="clear: left;"><div id="cboxBottomLeft" style="float: left;"></div><div id="cboxBottomCenter" style="float: left;"></div><div id="cboxBottomRight" style="float: left;"></div></div></div><div style="position: absolute; width: 9999px; visibility: hidden; display: none;"></div></div><div class="datepicker dropdown-menu"><div class="datepicker-days" style="display: block;"><table class=" table-condensed"><thead><tr><th class="prev">‹</th><th colspan="5" class="switch">July 2026</th><th class="next">›</th></tr><tr><th class="dow">Su</th><th class="dow">Mo</th><th class="dow">Tu</th><th class="dow">We</th><th class="dow">Th</th><th class="dow">Fr</th><th class="dow">Sa</th></tr></thead><tbody><tr><td class="day  old">28</td><td class="day  old">29</td><td class="day  old">30</td><td class="day ">1</td><td class="day ">2</td><td class="day ">3</td><td class="day ">4</td></tr><tr><td class="day ">5</td><td class="day ">6</td><td class="day ">7</td><td class="day ">8</td><td class="day ">9</td><td class="day ">10</td><td class="day ">11</td></tr><tr><td class="day ">12</td><td class="day ">13</td><td class="day ">14</td><td class="day ">15</td><td class="day ">16</td><td class="day ">17</td><td class="day ">18</td></tr><tr><td class="day ">19</td><td class="day  active">20</td><td class="day ">21</td><td class="day ">22</td><td class="day ">23</td><td class="day ">24</td><td class="day ">25</td></tr><tr><td class="day ">26</td><td class="day ">27</td><td class="day ">28</td><td class="day ">29</td><td class="day ">30</td><td class="day ">31</td><td class="day  new">1</td></tr><tr><td class="day  new">2</td><td class="day  new">3</td><td class="day  new">4</td><td class="day  new">5</td><td class="day  new">6</td><td class="day  new">7</td><td class="day  new">8</td></tr></tbody></table></div><div class="datepicker-months" style="display: none;"><table class="table-condensed"><thead><tr><th class="prev">‹</th><th colspan="5" class="switch">2026</th><th class="next">›</th></tr></thead><tbody><tr><td colspan="7"><span class="month">Jan</span><span class="month">Feb</span><span class="month">Mar</span><span class="month">Apr</span><span class="month">May</span><span class="month">Jun</span><span class="month active">Jul</span><span class="month">Aug</span><span class="month">Sep</span><span class="month">Oct</span><span class="month">Nov</span><span class="month">Dec</span></td></tr></tbody></table></div><div class="datepicker-years" style="display: none;"><table class="table-condensed"><thead><tr><th class="prev">‹</th><th colspan="5" class="switch">2020-2029</th><th class="next">›</th></tr></thead><tbody><tr><td colspan="7"><span class="year old">2019</span><span class="year">2020</span><span class="year">2021</span><span class="year">2022</span><span class="year">2023</span><span class="year">2024</span><span class="year">2025</span><span class="year active">2026</span><span class="year">2027</span><span class="year">2028</span><span class="year">2029</span><span class="year old">2030</span></td></tr></tbody></table></div></div></body></html>
