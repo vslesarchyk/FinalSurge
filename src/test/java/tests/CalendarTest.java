@@ -5,16 +5,17 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
-import org.testng.Assert;
 import org.testng.annotations.Test;
+
 import static dictionary.Elements.ACTIVITY_TYPE_ERROR;
+import static org.testng.Assert.*;
 
 public class CalendarTest extends BaseTest {
 
     @Epic("Workouts")
     @Feature("Add workouts")
     @Severity(SeverityLevel.NORMAL)
-    @Test (
+    @Test(
             description = "Quickly add a workout using the button",
             groups = {"smoke", "regression"}
     )
@@ -29,13 +30,13 @@ public class CalendarTest extends BaseTest {
                 .addQuickWorkoutWithButton()
                 .activityTypeQuickSelect(quickWorkout)
                 .clickAddWorkout();
-        Assert.assertTrue(calendarPage.workOutIsDisplayed(), "Workout hasn't been created");
+        assertTrue(calendarPage.workOutIsDisplayed(), "Workout hasn't been created");
     }
 
     @Epic("Workouts")
     @Feature("Add workouts")
     @Severity(SeverityLevel.NORMAL)
-    @Test (
+    @Test(
             description = "Negative check for adding a workout",
             groups = {"smoke", "regression"}
     )
@@ -49,7 +50,7 @@ public class CalendarTest extends BaseTest {
         calendarPage.isPageOpened()
                 .addQuickWorkoutWithButton()
                 .clickAddWorkout();
-        Assert.assertEquals(calendarPage.getActivityTypeError(), ACTIVITY_TYPE_ERROR, "Workout has been created");
+        assertEquals(calendarPage.getActivityTypeError(), ACTIVITY_TYPE_ERROR, "Workout has been created");
     }
 
     @Epic("Workouts")
@@ -70,14 +71,14 @@ public class CalendarTest extends BaseTest {
         addWorkoutPage.activityTypeSelect("run", "Long Run")
                 .addWorkoutName(fullWorkout)
                 .clickAddWorkout();
-        Assert.assertEquals(addWorkoutPage.getWorkoutName(), fullWorkout.getName(), "Workout hasn't been created");
+        assertEquals(addWorkoutPage.getWorkoutName(), fullWorkout.getName(), "Workout hasn't been created");
         startPage.clickCalendar();
     }
 
     @Epic("Workouts")
     @Feature("Edit workouts")
     @Severity(SeverityLevel.NORMAL)
-    @Test (description = "Editing a workout",
+    @Test(description = "Editing a workout",
             groups = {"smoke", "regression"}
     )
     public void editWorkout() {
@@ -91,7 +92,7 @@ public class CalendarTest extends BaseTest {
                 .addQuickWorkoutFromCalendar()
                 .activityTypeQuickSelect(quickWorkout)
                 .clickAddWorkout();
-        Assert.assertTrue(calendarPage.workOutIsDisplayed());
+        assertTrue(calendarPage.workOutIsDisplayed());
         calendarPage.editTraining();
         workoutDetailsPage.isPageOpened()
                 .clickUpdateWorkout();
@@ -116,13 +117,13 @@ public class CalendarTest extends BaseTest {
         workoutDetailsPage.clickSaveUpdateDWorkout();
         workoutDetailsPage.isPageOpened();
         startPage.clickCalendar();
-        Assert.assertTrue(calendarPage.workOutIsDisplayed(), "Workout hasn't been changed");
+        assertTrue(calendarPage.workOutIsDisplayed(), "Workout hasn't been changed");
     }
 
     @Epic("Workouts")
     @Feature("Add workouts")
     @Severity(SeverityLevel.NORMAL)
-    @Test (
+    @Test(
             description = "Creating a future workout through the dashboard",
             groups = {"smoke", "regression"}
     )
@@ -140,7 +141,7 @@ public class CalendarTest extends BaseTest {
                 .clickAddWorkout();
         dashboardPage.clickDashboardPage()
                 .clickUpcomingWorkouts();
-        Assert.assertTrue(dashboardPage.upcomingWorkoutsExists(), "Workout hasn't been created");
+        assertTrue(dashboardPage.upcomingWorkoutsExists(), "Workout hasn't been created");
         dashboardPage.clickFutureWorkoutDetails();
         workoutDetailsPage.isPageOpened();
     }
@@ -148,7 +149,7 @@ public class CalendarTest extends BaseTest {
     @Epic("Workouts")
     @Feature("Add workouts")
     @Severity(SeverityLevel.NORMAL)
-    @Test (
+    @Test(
             description = "Creating a past workout through the dashboard",
             groups = {"smoke", "regression"}
     )
@@ -166,12 +167,15 @@ public class CalendarTest extends BaseTest {
                 .clickAddWorkout();
         dashboardPage.clickDashboardPage()
                 .clickPastWorkouts();
-        Assert.assertTrue(dashboardPage.pastWorkoutsExists(), "Workout hasn't been created");
+        assertTrue(dashboardPage.pastWorkoutsExists(), "Workout hasn't been created");
         dashboardPage.clickPastWorkoutDetails();
         workoutDetailsPage.isPageOpened();
     }
 
-    @Test (description = "Remove past workout through the dashboard",
+    @Epic("Workouts")
+    @Feature("Remove workouts")
+    @Severity(SeverityLevel.NORMAL)
+    @Test(description = "Remove past workout through the dashboard",
             groups = {"smoke", "regression"}
     )
     public void removePastTrainingFromDashboardPage() {
@@ -184,19 +188,19 @@ public class CalendarTest extends BaseTest {
                 .login(user, password);
         dashboardPage.clickCalendar();
         calendarPage.isPageOpened()
-        .addQuickWorkoutWithButton()
-        .setWorkoutDate(-1)
-        .activityTypeQuickSelect(quickWorkout)
-        .clickAddWorkout();
+                .addQuickWorkoutWithButton()
+                .setWorkoutDate(-1)
+                .activityTypeQuickSelect(quickWorkout)
+                .clickAddWorkout();
         dashboardPage.clickDashboardPage()
-        .clickPastWorkouts();
-        Assert.assertTrue(dashboardPage.pastWorkoutsExists());
+                .clickPastWorkouts();
+        assertTrue(dashboardPage.pastWorkoutsExists());
         dashboardPage.clickPastWorkoutDetails();
         workoutDetailsPage.isPageOpened()
-        .clickUpdateWorkout();
+                .clickUpdateWorkout();
         addWorkoutPage.deleteWorkout();
         calendarPage.isPageOpened();
         dashboardPage.clickDashboardPage();
-        Assert.assertFalse(dashboardPage.isWorkoutPresent(workoutName), "Workout hasn't been removed");
+        assertFalse(dashboardPage.isWorkoutPresent(workoutName), "Workout hasn't been removed");
     }
 }

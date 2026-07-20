@@ -40,12 +40,12 @@ public class WorkoutDetailsPage extends BasePage {
         return this;
     }
 
-    @Step("Обновление тренировки")
+    @Step("Update workout")
     public void clickUpdateWorkout() {
         $(UPDATE_WORKOUT).click();
     }
 
-    @Step("Редактирование тренировки")
+    @Step("Edit workout")
     public void editWorkout(AddWorkout editWorkout) {
         $(WORKOUT_TIME).setValue(editWorkout.getTimeOfDay());
         $(NAME).setValue(editWorkout.getName());
