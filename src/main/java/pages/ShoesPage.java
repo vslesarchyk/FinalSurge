@@ -75,10 +75,10 @@ public class ShoesPage extends BasePage {
                 .build();
     }
 
-    @Step("Check for shoe availability {shoeName}")
+    @Step("Check whether shoe '{shoeName}' is present")
     public boolean isShoePresent(String shoeName) {
         return $$(TABLE_DATE_SELECTION)
-                .findBy(Condition.text(shoeName))
+                .findBy(Condition.exactText(shoeName))
                 .exists();
     }
 
@@ -88,17 +88,19 @@ public class ShoesPage extends BasePage {
         return this;
     }
 
-    @Step("Error message about shoe name")
-    public ShoesPage getShoeNameError() {
-        $(ERROR_MESSAGE).getText();
-        return this;
+
+    @Step("Get Shoe Name error message")
+    public String getShoeNameError() {
+        return $(ERROR_MESSAGE)
+                .shouldBe(visible)
+                .getText();
     }
 
     @Step("Removing shoes")
     public ShoesPage deleteShoes(String shoeName) {
         log.info("Removing shoes");
         clickDeleteButton(shoeName);
-        $(MODAL_VIEW).$(DELETE_CONFIRM_BUTTON).click();
+        $(MODAL_VIEW).$(DELETE_CONFIRM_BUTTON).shouldBe(clickable).click();
         return this;
     }
 
