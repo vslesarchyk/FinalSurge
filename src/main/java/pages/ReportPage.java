@@ -4,7 +4,6 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
-import org.openqa.selenium.By;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import static com.codeborne.selenide.Condition.clickable;

@@ -2,16 +2,14 @@ package pages;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.SelenideElement;
 import dto.Shoes;
 import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 
-import java.time.Duration;
-
 import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
+import static com.codeborne.selenide.Selenide.*;
 
 @Log4j2
 public class ShoesPage extends BasePage {
@@ -20,6 +18,7 @@ public class ShoesPage extends BasePage {
     private static final By SHOES_PAGE = By.cssSelector("a[href='EquipmentShoes.cshtml']");
     private static final By EQUIPMENT_PAGE = By.cssSelector("a[href='Equipment.cshtml']");
     private static final By TABLE_DATE_SELECTION = By.xpath("//table//tr//td[2]");
+    private static final By TABLE_DATE = By.xpath("//table/tbody/tr");
     private static final By EDIT_BUTTON = By.cssSelector(".btn.btn-mini");
     private static final String ERROR_MESSAGE = ".error";
     private static final By MODAL_VIEW = By.cssSelector(".modal-footer");
@@ -69,9 +68,12 @@ public class ShoesPage extends BasePage {
         return this;
     }
 
-    @Step("Get {ShoeName} data from page")
-    public Shoes getShoesNameFromPage() {
-        String shoeNameFromPage = $(TABLE_DATE_SELECTION).getText();
+    @Step("Get shoe '{shoeName}' data from page")
+    public Shoes getShoesNameFromPage(String shoeName) {
+        String shoeNameFromPage = $$(TABLE_DATE_SELECTION)
+                .findBy(Condition.exactText(shoeName))
+                .shouldBe(Condition.visible)
+                .getText();
         return Shoes.builder()
                 .shoeName(shoeNameFromPage)
                 .build();
@@ -85,7 +87,7 @@ public class ShoesPage extends BasePage {
     }
 
     @Step("Wait until Edit button should be clickable")
-    public ShoesPage addShoesWait() {
+    public ShoesPage addShoesWait(String shoeName) {
         $(EDIT_BUTTON).shouldBe(clickable);
         return this;
     }
@@ -107,20 +109,25 @@ public class ShoesPage extends BasePage {
     }
 
     @Step("Click on the button 'Edit'")
-    public void clickEditButton() {
+    public ShoesPage clickEditButton(String shoeName) {
         log.info("Clicking on button 'Edit'");
-        $(EDIT_BUTTON).click();
+        SelenideElement row = $$(TABLE_DATE).findBy(Condition.text(shoeName)).shouldBe(visible);
+        row.$(EDIT_BUTTON).shouldBe(clickable).click();
+        return this;
     }
 
     @Step("Click on the button 'Delete'")
-    public void clickDeleteButton(String shoeName) {
+    public ShoesPage clickDeleteButton(String shoeName) {
         log.info("Clicking on delete button");
-        $(DELETE_BUTTON).click();
+        $$(TABLE_DATE).first();
+        $(DELETE_BUTTON).shouldBe(clickable).click();
+        return this;
     }
 
     @Step("Get data from a page")
     public Shoes getInfoFromPage() {
         Shoes resultAddShoes = Shoes.builder()
+                .shoeName($(ADD_SHOE_NAME).getValue())
                 .brand($(BRAND).getText())
                 .model($(MODEL).getValue())
                 .cost($(COST).getValue())
@@ -136,6 +143,7 @@ public class ShoesPage extends BasePage {
 
     @Step("Editing shoes and adding new information")
     public ShoesPage editDetailsShoes(Shoes editAddshoes) {
+        $(ADD_SHOE_NAME).setValue(editAddshoes.getShoeName());
         $(SELECT_SHOE_BRAND).click();
         $(BRAND).selectOption(editAddshoes.getBrand());
         $(MODEL).setValue(editAddshoes.getModel());

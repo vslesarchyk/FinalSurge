@@ -6,6 +6,7 @@ import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import org.testng.annotations.Test;
+
 import static dictionary.Elements.INTENSITY_CALC_ERROR_MESSAGE;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
@@ -30,9 +31,9 @@ public class CalculatorTest extends BaseTest {
         calendarPage.isPageOpened();
         dashboardPage.clickCalculator();
         calculatorPage.isPageOpened()
-        .selectEvent()
-        .inputIntencityCalcTime(intensityCalc)
-        .clickCalculatePaces();
+                .selectEvent()
+                .inputIntencityCalcTime(intensityCalc)
+                .clickCalculatePaces();
         assertTrue(calculatorPage.workoutPacesDisplayed(), "Workout paces isn't displayed");
     }
 

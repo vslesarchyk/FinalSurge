@@ -56,7 +56,8 @@ public class CalendarTest extends BaseTest {
     @Epic("Workouts")
     @Feature("Add workouts")
     @Severity(SeverityLevel.NORMAL)
-    @Test(description = "Adding a workout via 'Full Add' button",
+    @Test(
+            description = "Adding a workout via 'Full Add' button",
             groups = {"smoke", "regression"}
     )
     public void addFullFromCalendar() {
@@ -175,7 +176,8 @@ public class CalendarTest extends BaseTest {
     @Epic("Workouts")
     @Feature("Remove workouts")
     @Severity(SeverityLevel.NORMAL)
-    @Test(description = "Remove past workout through the dashboard",
+    @Test(
+            description = "Remove past workout through the dashboard",
             groups = {"smoke", "regression"}
     )
     public void removePastTrainingFromDashboardPage() {
