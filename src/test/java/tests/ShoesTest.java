@@ -6,7 +6,6 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import static dictionary.Elements.SHOE_NAME_ERROR;
@@ -23,8 +22,9 @@ public class ShoesTest extends BaseTest {
             groups = {"regression", "smoke"}
     )
     public void positiveAddShoesTest() {
+        String shoeName = "Sport shoes " + System.currentTimeMillis();
         Shoes shoes = Shoes.builder()
-                .shoeName("Sport shoes")
+                .shoeName(shoeName)
                 .build();
         loginPage.openPage()
                 .login(user, password);
@@ -33,8 +33,8 @@ public class ShoesTest extends BaseTest {
                 .isPageOpened()
                 .quickAddShoesInput(shoes)
                 .clickAddShoesButton();
-        Shoes actualShoes = shoesPage.getShoesNameFromPage();
-        shoesPage.addShoesWait();
+        shoesPage.addShoesWait(shoeName);
+        Shoes actualShoes = shoesPage.getShoesNameFromPage(shoeName);
         assertEquals(actualShoes.getShoeName(), shoes.getShoeName(), "The name of the shoes does not match the expected one.");
     }
 
@@ -78,8 +78,9 @@ public class ShoesTest extends BaseTest {
                 .isPageOpened()
                 .quickAddShoesInput(shoes)
                 .clickAddShoesButton()
-                .clickEditButton();
-        shoesPage.deleteShoes(shoes.getShoeName());
+                .addShoesWait(shoeName)
+                .clickEditButton(shoeName)
+                .deleteShoes(shoes.getShoeName());
         assertFalse(
                 shoesPage.isShoePresent(shoes.getShoeName()),
                 "Shoe was not deleted"
@@ -102,7 +103,8 @@ public class ShoesTest extends BaseTest {
                 .isPageOpened()
                 .quickAddShoesInput(shoes)
                 .clickAddShoesButton()
-                .clickEditButton();
+                .addShoesWait(shoes.getShoeName())
+                .clickEditButton(shoes.getShoeName());
         shoesPage.isPageOpened();
         Shoes editAddshoes = Shoes.builder()
                 .shoeName("Nike")
@@ -119,9 +121,9 @@ public class ShoesTest extends BaseTest {
                 .build();
         shoesPage.editDetailsShoes(editAddshoes);
         shoesPage.clickAddShoesButton();
-        shoesPage.clickEditButton();
+        shoesPage.clickEditButton(editAddshoes.getShoeName());
+        shoesPage.isPageOpened();
         Shoes actualShoes = shoesPage.getInfoFromPage();
-        shoesPage.addShoesWait();
         assertEquals(actualShoes, editAddshoes, "The values do not match the expected ones.");
     }
 }

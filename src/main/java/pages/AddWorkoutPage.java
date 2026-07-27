@@ -1,7 +1,6 @@
 package pages;
 
 import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.SelenideElement;
 import dto.AddWorkout;
 import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;

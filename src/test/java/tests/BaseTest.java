@@ -28,11 +28,11 @@ public class BaseTest {
     ReportPage reportPage;
 
     String user = System.getProperty("user", PropertyReader.getProperty("user"));
-    String password= System.getProperty("password", PropertyReader.getProperty("password"));
+    String password = System.getProperty("password", PropertyReader.getProperty("password"));
 
     @BeforeMethod(alwaysRun = true, description = "Browser settings")
     public void setUp(@Optional("chrome") String browser) {
-        Configuration.browser =  browser;
+        Configuration.browser = browser;
         Configuration.baseUrl = "https://log.finalsurge.com/";
         Configuration.timeout = 20000;
         Configuration.clickViaJs = true;
@@ -88,8 +88,9 @@ public class BaseTest {
                 .savePageSource(true)
         );
     }
-    @AfterMethod (alwaysRun = true, description = "Closing the browser")
-        public void tearDown() {
+
+    @AfterMethod(alwaysRun = true, description = "Closing the browser")
+    public void tearDown() {
         getWebDriver().quit();
     }
 }
