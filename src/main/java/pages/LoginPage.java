@@ -6,6 +6,7 @@ import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.SetValueOptions.withText;
 
 @Log4j2
 public class LoginPage extends BasePage {
@@ -28,16 +29,16 @@ public class LoginPage extends BasePage {
     }
 
     public StartPage login(String user, String password) {
-        $(INPUT_EMAIL_FIELD).setValue(user);
-        $(INPUT_PASSWORD_FIELD).setValue(password);
+        $(INPUT_EMAIL_FIELD).setValue(withText(user).sensitive());
+        $(INPUT_PASSWORD_FIELD).setValue(withText(password).sensitive());
         $(LOGIN_BUTTON).click();
         log.info("User successfully log in");
         return new StartPage();
     }
 
     public LoginPage loginWithNegativeCred(String user, String password) {
-        $(INPUT_EMAIL_FIELD).setValue(user);
-        $(INPUT_PASSWORD_FIELD).setValue(password);
+        $(INPUT_EMAIL_FIELD).setValue(withText(user).sensitive());
+        $(INPUT_PASSWORD_FIELD).setValue(withText(password).sensitive());
         $(LOGIN_BUTTON).click();
         log.info("User doesn't log in");
         return this;
